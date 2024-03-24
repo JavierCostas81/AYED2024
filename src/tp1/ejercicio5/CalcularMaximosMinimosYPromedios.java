@@ -6,20 +6,32 @@ import java.util.Scanner;
 public class CalcularMaximosMinimosYPromedios {
     static ArrayResultado gArrayResultado;
     public static void main(String[] args) {
-        int[] arrayVacioDeEnteros = new int[0];
-        int[] arrayDeEnteros = {0, 5, 18, 9, 33, 25};
+        //int[] arrayDeEnteros = {0, 5, 18, 9, 33, 25};
         ArrayResultado arrayResultado = new ArrayResultado();
         Scanner s = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
         String menu = "\nIngrese:\n" +
                 "1: Para calcular Máximo, Mínimo y Promedio mediante return\n" +
                 "2: Para calcular Máximo, Mínimo y Promedio mediante parámetro\n" +
                 "3: Para calcular Máximo, Mínimo y Promedio sin return ni parámetro\n" +
                 "Cualquier otro entero para salir.\n" +
                 "Esperando ingreso por teclado...";
-        System.out.println(menu);
-        int sValue =  s.nextInt();
-        while ((sValue > 0) && (sValue<4)) {
-            switch (sValue) {
+        String menu1 = "\n¿Largo del array de enteros? (entero negativo para salir)";
+        String menu2 = "\nIngresá un número entero: ";
+
+        System.out.println(menu1);
+        int guia = sc.nextInt();
+        while (guia >= 0) {
+            int[] arrayDeEnteros = new int[guia];
+            for (int i = 0; i < guia; i++) {
+                System.out.println(menu2);
+                int a = sc.nextInt();
+                arrayDeEnteros[i] = a;
+            }
+            System.out.println(menu);
+            int sValue =  s.nextInt();
+            while ((sValue > 0) && (sValue<4)) {
+                switch (sValue) {
                 case 1: {
                     arrayResultado = devolucionPorReturn(arrayDeEnteros);
                 }
@@ -34,10 +46,15 @@ public class CalcularMaximosMinimosYPromedios {
                         ", Promedio: " + arrayResultado.getProm());
                 System.out.println(menu);
                 sValue = s.nextInt();
+                }
             }
+            //s.close();
+            System.out.println(menu1);
+            guia = sc.nextInt();
         }
-        System.out.println("Saliendo...");
+        System.out.println("Saliendo del programa...");
         s.close();
+        sc.close();
     }
 
     public static ArrayResultado devolucionPorReturn (int[] arr) {
