@@ -99,8 +99,37 @@ public class TestArrayList {
         System.out.println("LinkedList2: " + linkedList2);
         System.out.println("Suma total: " + sumarLinkedList(linkedList2));
 
+        ArrayList<Integer> oList1 = new ArrayList<>(Arrays.asList(1,5,8,9,10,15,35));
+        ArrayList<Integer> oList2 = new ArrayList<>(Arrays.asList(5,7,9,17,35,77,79,81));
+        ArrayList<Integer> oListRes = new ArrayList<>(combinarOrdenado(oList1,oList2));
+        System.out.println(oListRes.size() + " " + oListRes);
+
 
     }
+
+    public static ArrayList<Integer> combinarOrdenado(ArrayList<Integer> lista1, ArrayList<Integer> lista2) {
+        ArrayList<Integer> resultado = new ArrayList<>();
+        int i = 0, j = 0;
+        while (i < lista1.size() && j < lista2.size()) {
+            if (lista1.get(i) < lista2.get(j)) {
+                resultado.add(lista1.get(i));
+                i++;
+            } else {
+                resultado.add(lista2.get(j));
+                j++;
+            }
+        }
+        while (i < lista1.size()) {
+            resultado.add(lista1.get(i));
+            i++;
+        }
+        while (j < lista2.size()) {
+            resultado.add(lista2.get(j));
+            j++;
+        }
+        return new ArrayList<Integer>(resultado);
+    }
+
 
     private static int  sumarLinkedList (LinkedList<Integer> linkedList) {
         Iterator<Integer> nodo = linkedList.iterator();
