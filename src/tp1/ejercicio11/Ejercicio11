@@ -1,0 +1,4 @@
+/*
+Una cola circular donde cada vez que un colectivo llega a una parada,
+se hace un switch para tener en head la próxima parada.
+*/

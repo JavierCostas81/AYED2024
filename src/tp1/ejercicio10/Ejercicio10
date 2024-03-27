@@ -1,0 +1,4 @@
+/*
+Dos colas, una atención común, y otra de prioridad, hasta no finalizar la cola de prioridad, no se comienza con
+la atención común.
+*/
