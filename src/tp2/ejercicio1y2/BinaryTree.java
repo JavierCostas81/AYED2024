@@ -1,6 +1,7 @@
 package tp2.ejercicio1y2;
 
 
+import tp1.ejercicio8.Queue;
 
 public class BinaryTree <T> {
 	
@@ -76,6 +77,10 @@ public class BinaryTree <T> {
 		return this.getData().toString();
 	}
 
+
+
+
+
 	//TP2 Ejercicio2
 	public  int contarHojas() {
 		if (this.isLeaf()) {
@@ -89,18 +94,43 @@ public class BinaryTree <T> {
 		else return this.rightChild.contarHojas() ;
 	}
 
+	public BinaryTree<T> clonar(BinaryTree<T> clon) {
 
+//		if (this.isLeaf()) {
+//			return clon;
+//		} else {
+		if (!this.isLeaf()) {
+			clon.setData(this.getData());
+			BinaryTree<T> izq = new BinaryTree<>(this.getLeftChild().getData());
+			BinaryTree<T> der = new BinaryTree<>(this.getRightChild().getData());
+			clon.addLeftChild(izq);
+			clon.addRightChild(der);
+			if (this.hasLeftChild()) {
+				this.getLeftChild().clonar(clon.getLeftChild());
+			}
+			if (this.hasRightChild()) {
+				this.getRightChild().clonar(clon.getRightChild());
+			}
+		}
+		return clon;
+	}
     	 
-    public BinaryTree<T> espejo(){
-		invertirHijos( this);
- 	   return this;
+    public BinaryTree<T> espejo() {
+		BinaryTree<T> espejo = new BinaryTree<>();
+		this.clonar(espejo);
+		invertirHijos(espejo);
+		return espejo;
     }
+
+	private void swap (BinaryTree<T> nodo) {
+		BinaryTree<T> tmp = nodo.getLeftChild();
+		nodo.addLeftChild(nodo.getRightChild());
+		nodo.addRightChild(tmp);
+	}
 
 	private void invertirHijos(BinaryTree<T> main) {
 		if (!main.isLeaf()) {
-			BinaryTree<T> tmp = main.getLeftChild();
-			main.addLeftChild(main.getRightChild());
-			main.addRightChild(tmp);
+			swap(main);
 			if (main.hasLeftChild()) {
 				invertirHijos(main.getLeftChild());
 			}
@@ -110,9 +140,38 @@ public class BinaryTree <T> {
 		}
 	}
 
+
 	// 0<=n<=m
-	public void entreNiveles(int n, int m){
-		
+	public void entreNiveles(int n, int m) throws IllegalAccessException {
+		Queue<BinaryTree<T>> cola = new Queue<>();
+		BinaryTree<T> aBTemp = new BinaryTree<>();
+		int nivel = 0;
+		cola.enqueue(this);
+		cola.enqueue(null);
+		System.out.println("Se imprimirán los nodos entre los niveles: " + n + " y " + m);
+		while (!cola.isEmpty()) {
+			aBTemp = cola.dequeue();
+			if (aBTemp != null) {
+				if ((nivel >= n) && (nivel <= m)) {
+					System.out.print("Nivel : " + nivel + " con valor: " + aBTemp.getData() + "\n");
+				}
+				else if (nivel > m) {
+					return;
+				}
+				if (aBTemp.hasLeftChild()) {
+					cola.enqueue(aBTemp.getLeftChild());
+				}
+				if (aBTemp.hasRightChild()) {
+					cola.enqueue(aBTemp.getRightChild());
+				}
+			} else {
+				nivel++;
+				if (!cola.isEmpty()) {
+					cola.enqueue(null);
+				}
+				System.out.println("");
+			}
+		}
    }
 		
 }

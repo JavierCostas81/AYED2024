@@ -2,7 +2,7 @@ package tp2.ejercicio1y2;
 
 import tp1.ejercicio8.Queue;
 public class TestBinaryTree {
-    public static void main(String[] args) throws IllegalAccessException {
+    public static void main(String[] args) throws IllegalAccessException, CloneNotSupportedException {
 
         BinaryTree<Integer> a = new BinaryTree<>(1);
         BinaryTree<Integer> b = new BinaryTree<>(2);
@@ -28,16 +28,22 @@ public class TestBinaryTree {
         System.out.println("La cantidad de hojas de " + a + " es: " + a.contarHojas());
         Queue<Integer> cola = new Queue<>();
         imprimirArbol(a,cola);
+
         while (!cola.isEmpty()) {
             System.out.print(cola.dequeue() + " ");
         }
         System.out.println(" ");
-        a.espejo();
-        imprimirArbol(a,cola);
+        a.entreNiveles(2,2);
+        /*imprimirArbol(a.espejo(),cola);
         while (!cola.isEmpty()) {
             System.out.print(cola.dequeue() + " ");
         }
+        System.out.println(" ");
 
+        imprimirArbol(a,cola);
+        while (!cola.isEmpty()) {
+            System.out.print(cola.dequeue() + " ");
+        }*/
 
     }
 
