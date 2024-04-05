@@ -1,6 +1,11 @@
 package tp2.ejercicio1y2;
 
 import tp1.ejercicio8.Queue;
+import tp2.ejercicio3.ContadorArbol;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class TestBinaryTree {
     public static void main(String[] args) throws IllegalAccessException, CloneNotSupportedException {
 
@@ -44,7 +49,12 @@ public class TestBinaryTree {
         while (!cola.isEmpty()) {
             System.out.print(cola.dequeue() + " ");
         }*/
-
+        List<Integer> check = new ArrayList<>();
+        ContadorArbol contadorArbol = new ContadorArbol(a);
+        check = contadorArbol.numerosPares();
+        for (Integer m : check) {
+            System.out.println(m);
+        }
     }
 
     public static void imprimirArbol(BinaryTree<Integer> t, Queue<Integer> cola) {
