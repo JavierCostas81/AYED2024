@@ -14,7 +14,7 @@ public class ContadorArbol {
 
     public List<Integer> numerosPares() {
         List<Integer> returnList = new ArrayList<>();
-        if ((Math.random() % 2) == 0) {
+        if (Math.random() >= 0.5) {
             System.out.println("Numeros pares inOrden:");
             inOrden(arbolBinario,returnList);
         }
