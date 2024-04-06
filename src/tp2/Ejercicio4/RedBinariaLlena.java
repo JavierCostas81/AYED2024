@@ -17,7 +17,7 @@ public class RedBinariaLlena<T> {
     }
 
     private int rutaCritica(BinaryTree<T> ab) {
-        if (ab == null) { return 0; }
+        if ((ab == null) || ab.isEmpty()) { return 0; }
         if (ab.isLeaf()) {
             return (int) ab.getData();
         }

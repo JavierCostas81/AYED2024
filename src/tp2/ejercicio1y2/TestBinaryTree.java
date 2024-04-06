@@ -66,8 +66,8 @@ public class TestBinaryTree {
         RedBinariaLlena<Integer> redBinariaLlena = new RedBinariaLlena(a);
         System.out.println("Mayor retardo posible: " + redBinariaLlena.retardoReenvio() + " segundos");
         ProfundidadDeArbolBinario<Integer> profundidadDeArbolBinario = new ProfundidadDeArbolBinario<>(a);
-        int p = -2;
-        System.out.println("La suma de los nodos de profundida " + p + " es " + profundidadDeArbolBinario.sumaElementosProfundidad(p));
+        int p = 2;
+        System.out.println("La suma de los nodos de profundidad " + p + " es " + profundidadDeArbolBinario.sumaElementosProfundidad(p));
 
 
     }
