@@ -1,6 +1,7 @@
 package tp2.ejercicio1y2;
 
 import tp1.ejercicio8.Queue;
+import tp2.Ejercicio4.RedBinariaLlena;
 import tp2.ejercicio3.ContadorArbol;
 
 import java.util.ArrayList;
@@ -20,6 +21,9 @@ public class TestBinaryTree {
         BinaryTree<Integer> i = new BinaryTree<>(9);
         BinaryTree<Integer> j = new BinaryTree<>(10);
         BinaryTree<Integer> k = new BinaryTree<>(11);
+       /* BinaryTree<Integer> k1 = new BinaryTree<>(25);
+        BinaryTree<Integer> k2 = new BinaryTree<>(13);
+        BinaryTree<Integer> k3 = new BinaryTree<>(17);*/
         a.addLeftChild(b);
         a.addRightChild(c);
         b.addLeftChild(d);
@@ -30,6 +34,9 @@ public class TestBinaryTree {
         d.addRightChild(i);
         e.addLeftChild(j);
         e.addRightChild(k);
+    /*    k.addRightChild(k1);
+        k1.addLeftChild(k2);
+        k2.addRightChild(k3);*/
         System.out.println("La cantidad de hojas de " + a + " es: " + a.contarHojas());
         Queue<Integer> cola = new Queue<>();
         imprimirArbol(a,cola);
@@ -55,6 +62,8 @@ public class TestBinaryTree {
         for (Integer m : check) {
             System.out.println(m);
         }
+        RedBinariaLlena<Integer> redBinariaLlena = new RedBinariaLlena(a);
+        System.out.println("Mayor retardo posible: " + redBinariaLlena.retardoReenvio() + " segundos");
     }
 
     public static void imprimirArbol(BinaryTree<Integer> t, Queue<Integer> cola) {
