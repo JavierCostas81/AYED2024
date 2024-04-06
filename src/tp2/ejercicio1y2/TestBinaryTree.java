@@ -4,6 +4,7 @@ import tp1.ejercicio8.Queue;
 import tp2.Ejercicio4.RedBinariaLlena;
 import tp2.Ejercicio5.ProfundidadDeArbolBinario;
 import tp2.Ejercicio6.Transformacion;
+import tp2.Ejercicio7.ParcialArboles;
 import tp2.ejercicio3.ContadorArbol;
 
 import java.util.ArrayList;
@@ -92,6 +93,8 @@ public class TestBinaryTree {
             System.out.print(cola2.dequeue() + " ");
         }
         System.out.println(" ");
+
+       // ParcialArboles parcial = new ParcialArboles(a);
     }
 
     public static void imprimirArbol(BinaryTree<Integer> t, Queue<Integer> cola) {
