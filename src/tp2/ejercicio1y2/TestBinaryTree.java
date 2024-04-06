@@ -2,6 +2,7 @@ package tp2.ejercicio1y2;
 
 import tp1.ejercicio8.Queue;
 import tp2.Ejercicio4.RedBinariaLlena;
+import tp2.Ejercicio5.ProfundidadDeArbolBinario;
 import tp2.ejercicio3.ContadorArbol;
 
 import java.util.ArrayList;
@@ -64,6 +65,11 @@ public class TestBinaryTree {
         }
         RedBinariaLlena<Integer> redBinariaLlena = new RedBinariaLlena(a);
         System.out.println("Mayor retardo posible: " + redBinariaLlena.retardoReenvio() + " segundos");
+        ProfundidadDeArbolBinario<Integer> profundidadDeArbolBinario = new ProfundidadDeArbolBinario<>(a);
+        int p = -2;
+        System.out.println("La suma de los nodos de profundida " + p + " es " + profundidadDeArbolBinario.sumaElementosProfundidad(p));
+
+
     }
 
     public static void imprimirArbol(BinaryTree<Integer> t, Queue<Integer> cola) {
