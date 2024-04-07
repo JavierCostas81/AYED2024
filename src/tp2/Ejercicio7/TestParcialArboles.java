@@ -33,6 +33,46 @@ public class TestParcialArboles {
         Si num = -3 debería devolver false -1>-1
          */
         ParcialArboles parcialArboles = new ParcialArboles(a);
-        System.out.println(parcialArboles.isLeftTree(444));
+        System.out.println(parcialArboles.isLeftTree(-5));
+        BinaryTree<Integer> a1 = new BinaryTree<>(65);
+        BinaryTree<Integer> b1 = new BinaryTree<>(37);
+        BinaryTree<Integer> c1 = new BinaryTree<>(81);
+        BinaryTree<Integer> d1 = new BinaryTree<>(22);
+        BinaryTree<Integer> e1 = new BinaryTree<>(47);
+        BinaryTree<Integer> f1 = new BinaryTree<>(76);
+        BinaryTree<Integer> g1 = new BinaryTree<>(93);
+        BinaryTree<Integer> h1 = new BinaryTree<>(11);
+        BinaryTree<Integer> i1 = new BinaryTree<>(29);
+        BinaryTree<Integer> j1 = new BinaryTree<>(85);
+        BinaryTree<Integer> k1 = new BinaryTree<>(94);
+        a1.addLeftChild(b1);
+        a1.addRightChild(c1);
+        b1.addLeftChild(d1);
+        b1.addRightChild(e1);
+        c1.addLeftChild(f1);
+        c1.addRightChild(g1);
+        d1.addLeftChild(h1);
+        d1.addRightChild(i1);
+        g1.addLeftChild(j1);
+        g1.addRightChild(k1);
+        a1.entreNiveles(0,3);
+        BinaryTree<Integer> a2 = new BinaryTree<>();
+        a1.clonar(a2);
+        a2.getLeftChild().removeLeftChild();
+        a2.getLeftChild().getRightChild().removeLeftChild();
+        a2.getLeftChild().getRightChild().removeRightChild();
+        a2.getRightChild().removeLeftChild();
+        a2.getRightChild().getRightChild().removeRightChild();
+        a2.getRightChild().getRightChild().removeLeftChild();
+        a2.entreNiveles(0,3);
+        BinaryTree<Integer> a3 = new BinaryTree<>();
+        a1.clonar(a3);
+        a3.getRightChild().removeRightChild();
+        a3.entreNiveles(0,3);
+        tp2.Ejercicio8.ParcialArboles parcialArboles1 = new tp2.Ejercicio8.ParcialArboles(a1);
+        System.out.println(parcialArboles1.esPrefijo(a3,a1));
+
+
     }
+
 }
