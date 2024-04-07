@@ -1,5 +1,6 @@
 package tp2.Ejercicio7;
 
+import tp1.ejercicio8.Queue;
 import tp2.ejercicio1y2.BinaryTree;
 
 public class TestParcialArboles {
@@ -72,7 +73,55 @@ public class TestParcialArboles {
         tp2.Ejercicio8.ParcialArboles parcialArboles1 = new tp2.Ejercicio8.ParcialArboles(a1);
         System.out.println(parcialArboles1.esPrefijo(a3,a1));
 
+        BinaryTree<Integer> a10 = new BinaryTree<>(20);
+        BinaryTree<Integer> b10 = new BinaryTree<>(5);
+        BinaryTree<Integer> c10 = new BinaryTree<>(30);
+        BinaryTree<Integer> d10 = new BinaryTree<>(-5);
+        BinaryTree<Integer> e10 = new BinaryTree<>(10);
+        BinaryTree<Integer> f10 = new BinaryTree<>(50);
+        BinaryTree<Integer> g10 = new BinaryTree<>(-9);
+        BinaryTree<Integer> h10 = new BinaryTree<>(1);
+        BinaryTree<Integer> i10 = new BinaryTree<>(4);
+        BinaryTree<Integer> j10 = new BinaryTree<>(6);
 
+        a10.addLeftChild(b10);
+        a10.addRightChild(c10);
+        b10.addLeftChild(d10);
+        b10.addRightChild(e10);
+        c10.addLeftChild(f10);
+        c10.addRightChild(g10);
+        e10.addLeftChild(h10);
+        f10.addRightChild(i10);
+        i10.addRightChild(j10);
+        a10.entreNiveles(0,13);
+        tp2.Ejercicio9.ParcialArboles parcialArboles2 = new tp2.Ejercicio9.ParcialArboles(a10);
+        BinaryTree<int[]> resultado = parcialArboles2.sumAndDif(a10);
+        imprimeNiveles(resultado);
     }
+    public static void imprimeNiveles(BinaryTree<int[]> arbol) throws IllegalAccessException {
+        Queue<BinaryTree<int[]>> cola = new Queue<>();
+        BinaryTree<int[]> aBTemp = new BinaryTree<>();
+        int nivel = 0;
+        cola.enqueue(arbol);
+        cola.enqueue(null);
+        while (!cola.isEmpty()) {
+            aBTemp = cola.dequeue();
+            if (aBTemp != null) {
+                System.out.print("Nivel : " + nivel + " con valor: " + aBTemp.getData()[0] + "," + aBTemp.getData()[1] + "\n");
+                if (aBTemp.hasLeftChild()) {
+                    cola.enqueue(aBTemp.getLeftChild());
+                }
+                if (aBTemp.hasRightChild()) {
+                    cola.enqueue(aBTemp.getRightChild());
+                } else {
+                    nivel++;
+                    if (!cola.isEmpty()) {
+                        cola.enqueue(null);
+                    }
+                    System.out.println("");
+                }
 
+            }
+        }
+    }
 }

@@ -5,9 +5,16 @@ import tp2.ejercicio1y2.BinaryTree;
 public class ParcialArboles {
     BinaryTree<Integer> binaryTree;
 
+
+
     public ParcialArboles(BinaryTree<Integer> ab) {
         binaryTree = ab;
     }
+
+    public BinaryTree<Integer> getBinaryTree() {
+        return binaryTree;
+    }
+
 
     public boolean isLeftTree(int num) {
         return busquedaYComparacion(binaryTree, num);
