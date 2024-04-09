@@ -11,19 +11,22 @@ public class RedBinariaLlena<T> {
     }
 
     public int retardoReenvio() {
-        int max = 0;
         int returnInt = rutaCritica(binaryTree);
         return returnInt;
     }
 
     private int rutaCritica(BinaryTree<T> ab) {
         if ((ab == null) || ab.isEmpty()) { return 0; }
-        if (ab.isLeaf()) {
-            return (int) ab.getData();
-        }
+        return Math.max(
+                rutaCritica(ab.getLeftChild()),
+                rutaCritica(ab.getRightChild())
+                ) + (int) ab.getData();
+
+/*
         int maximoIzquierdo = rutaCritica(ab.getLeftChild()) + (int) ab.getData();
         int maximoderecho = rutaCritica(ab.getRightChild()) + (int) ab.getData();
         return Math.max(maximoIzquierdo,maximoderecho);
+*/
 
     }
 

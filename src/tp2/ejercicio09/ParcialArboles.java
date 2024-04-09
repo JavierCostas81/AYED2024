@@ -9,25 +9,24 @@ public class ParcialArboles extends tp2.ejercicio07.ParcialArboles {
         super(ab);
     }
 
-    public BinaryTree<int[]> sumAndDif(BinaryTree<Integer> arbol) {
-        BinaryTree<int[]> result = new BinaryTree<int[]>();
-        sumAndDifAux(arbol, result,0,0);
-        return result;
+    public BinaryTree<SumaDeEnteros> sumAndDif(BinaryTree<Integer> arbol) {
+        return sumAndDifAux(arbol,0,0);
     }
 
-    private void sumAndDifAux(BinaryTree<Integer> arbol, BinaryTree<int[]> result, int sum, int dif) {
-        if (arbol != null) {
-            int[] aux = {arbol.getData() + sum, arbol.getData() - dif};
+    private BinaryTree<SumaDeEnteros> sumAndDifAux(BinaryTree<Integer> arbol, Integer sum, Integer dif) {
+        BinaryTree<SumaDeEnteros> result = new BinaryTree<>();
+        if ((arbol != null) || (!arbol.isEmpty())) {
+            SumaDeEnteros aux = new SumaDeEnteros(arbol.getData() + sum, arbol.getData() - dif);
             result.setData(aux);
             if (arbol.hasLeftChild()) {
-                result.addLeftChild(new BinaryTree<int[]>());
-                sumAndDifAux(arbol.getLeftChild(), result.getLeftChild(), aux[0], arbol.getData());
+                result.addLeftChild(sumAndDifAux(arbol.getLeftChild(), aux.getSum(), arbol.getData()));
             }
             if (arbol.hasRightChild()) {
-                result.addRightChild(new BinaryTree<int[]>());
-                sumAndDifAux(arbol.getRightChild(), result.getRightChild(), aux[0], arbol.getData());
+                result.addRightChild(sumAndDifAux(arbol.getRightChild(), aux.getSum(), arbol.getData()));
+
             }
         }
+        return result;
     }
 
 }

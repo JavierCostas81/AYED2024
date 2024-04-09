@@ -58,7 +58,7 @@ public class TestBinaryTree {
         while (!cola.isEmpty()) {
             System.out.print(cola.dequeue() + " ");
         }*/
-        List<Integer> check = new ArrayList<>();
+        List<Integer> check;
         ContadorArbol contadorArbol = new ContadorArbol(a);
         check = contadorArbol.numerosPares();
         for (Integer m : check) {
@@ -66,8 +66,8 @@ public class TestBinaryTree {
         }
         RedBinariaLlena<Integer> redBinariaLlena = new RedBinariaLlena(a);
         System.out.println("Mayor retardo posible: " + redBinariaLlena.retardoReenvio() + " segundos");
-        ProfundidadDeArbolBinario<Integer> profundidadDeArbolBinario = new ProfundidadDeArbolBinario<>(a);
-        int p = 2;
+        ProfundidadDeArbolBinario<Integer> profundidadDeArbolBinario = new ProfundidadDeArbolBinario<Integer>(a);
+        int p = 1;
         System.out.println("La suma de los nodos de profundidad " + p + " es " + profundidadDeArbolBinario.sumaElementosProfundidad(p));
         BinaryTree<Integer> aa = new BinaryTree<>(1);
         BinaryTree<Integer> bb = new BinaryTree<>(2);

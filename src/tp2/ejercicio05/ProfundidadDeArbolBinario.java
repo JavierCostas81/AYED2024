@@ -3,16 +3,27 @@ package tp2.ejercicio05;
 import tp1.ejercicio08.Queue;
 import tp2.ejercicio01y02.BinaryTree;
 
-public class ProfundidadDeArbolBinario<T> {
+public class ProfundidadDeArbolBinario<Integer> {
 
-    BinaryTree<T> binaryTree;
+    BinaryTree<Integer> binaryTree;
 
-    public ProfundidadDeArbolBinario(BinaryTree<T> binaryTree) {
+    public ProfundidadDeArbolBinario(BinaryTree<Integer> binaryTree) {
         this.binaryTree = binaryTree;
     }
 
+    public int sumaElementosProfundidad(int p) {
+        return sumar(binaryTree,p);
+    }
 
-    public int sumaElementosProfundidad (int p) throws IllegalAccessException {
+    private int sumar(BinaryTree<Integer> tree, int prof) {
+        if ((tree == null) || (prof < 0)) return 0;
+        if (prof == 0) {
+            return (int) tree.getData();
+        }
+        return sumar(tree.getLeftChild(),prof - 1) +
+               sumar(tree.getRightChild(),prof - 1);
+    }
+ /*   public int sumaElementosProfundidad (int p) throws IllegalAccessException {
         Queue<BinaryTree<T>> cola = new Queue<>();
         BinaryTree<T> aBTemp;
         int nivel = 0;
@@ -44,4 +55,4 @@ public class ProfundidadDeArbolBinario<T> {
         }
         return suma;
     }
-}
+*/}

@@ -2,6 +2,7 @@ package tp2.ejercicio07;
 
 import tp1.ejercicio08.Queue;
 import tp2.ejercicio01y02.BinaryTree;
+import tp2.ejercicio09.SumaDeEnteros;
 
 public class TestParcialArboles {
     public static void main(String[] args) throws IllegalAccessException {
@@ -95,19 +96,19 @@ public class TestParcialArboles {
         i10.addRightChild(j10);
         a10.entreNiveles(0,13);
         tp2.ejercicio09.ParcialArboles parcialArboles2 = new tp2.ejercicio09.ParcialArboles(a10);
-        BinaryTree<int[]> resultado = parcialArboles2.sumAndDif(a10);
+        BinaryTree<SumaDeEnteros> resultado = parcialArboles2.sumAndDif(a10);
         imprimeNiveles(resultado);
     }
-    public static void imprimeNiveles(BinaryTree<int[]> arbol) throws IllegalAccessException {
-        Queue<BinaryTree<int[]>> cola = new Queue<>();
-        BinaryTree<int[]> aBTemp = new BinaryTree<>();
+    public static void imprimeNiveles(BinaryTree<SumaDeEnteros> arbol) throws IllegalAccessException {
+        Queue<BinaryTree<SumaDeEnteros>> cola = new Queue<>();
+        BinaryTree<SumaDeEnteros> aBTemp;
         int nivel = 0;
         cola.enqueue(arbol);
         cola.enqueue(null);
         while (!cola.isEmpty()) {
             aBTemp = cola.dequeue();
             if (aBTemp != null) {
-                System.out.print("Nivel : " + nivel + " con valor: " + aBTemp.getData()[0] + "," + aBTemp.getData()[1] + "\n");
+                System.out.print("Nivel : " + nivel + " con valor: " + aBTemp.getData().getSum() + "," + aBTemp.getData().getDif() + "\n");
                 if (aBTemp.hasLeftChild()) {
                     cola.enqueue(aBTemp.getLeftChild());
                 }

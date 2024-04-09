@@ -83,15 +83,10 @@ public class BinaryTree <T> {
 
 	//TP2 Ejercicio2
 	public  int contarHojas() {
-		if (this.isLeaf()) {
-			return 1;
-		}
-		if ((this.hasLeftChild()) && this.hasRightChild()){
-			return this.leftChild.contarHojas() + this.rightChild.contarHojas();
-		} else if (this.hasLeftChild()) {
-			return this.leftChild.contarHojas();
-		}
-		else return this.rightChild.contarHojas() ;
+		if (this == null || this.isEmpty()) return 0;
+		if (this.isLeaf()) return 1;
+		return this.getLeftChild().contarHojas() +
+			   this.getRightChild().contarHojas();
 	}
 
 	public BinaryTree<T> clonar(BinaryTree<T> clon) {

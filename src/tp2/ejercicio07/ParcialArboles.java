@@ -22,9 +22,7 @@ public class ParcialArboles {
 
     private boolean busquedaYComparacion(BinaryTree<Integer> arbol, int num) {
         if (arbol == null) return false;
-
         if (arbol.getData() == num) {
-            System.out.println("Encontré");
             int izq = contarHijosUnicos(arbol.getLeftChild());
             int der = contarHijosUnicos(arbol.getRightChild());
             System.out.println("Hijos únicos izquierda: " + izq + "\nHijos únicos derecha: " + der);
