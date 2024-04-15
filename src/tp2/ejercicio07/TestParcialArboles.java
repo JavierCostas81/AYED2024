@@ -56,7 +56,8 @@ public class TestParcialArboles {
         d1.addLeftChild(h1);
         d1.addRightChild(i1);
         g1.addLeftChild(j1);
-        g1.addRightChild(k1);
+        BinaryTree<Integer> arbolVacio = new BinaryTree<>();
+        g1.addRightChild(h1);
         a1.entreNiveles(0,3);
         BinaryTree<Integer> a2 = new BinaryTree<>();
         a1.clonar(a2);
@@ -72,7 +73,7 @@ public class TestParcialArboles {
         a3.getRightChild().removeRightChild();
         a3.entreNiveles(0,3);
         tp2.ejercicio08.ParcialArboles parcialArboles1 = new tp2.ejercicio08.ParcialArboles(a1);
-        System.out.println(parcialArboles1.esPrefijo(a3,a1));
+        System.out.println("ES PREFIJO?: " + parcialArboles1.esPrefijo(a1,a3));
 
         BinaryTree<Integer> a10 = new BinaryTree<>(20);
         BinaryTree<Integer> b10 = new BinaryTree<>(5);

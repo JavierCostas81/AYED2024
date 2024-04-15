@@ -84,9 +84,10 @@ public class TestBinaryTree {
         cc.addRightChild(ff);
         ee.addLeftChild(gg);
         ee.addRightChild(hh);
-        Transformacion arbolTransformado = new Transformacion(aa);
+        Transformacion<Integer> arbolTransformado = new Transformacion<>(aa);
         BinaryTree<Integer> aaa = arbolTransformado.suma();
         Queue<String> cola2 = new Queue<>();
+        System.out.println("\n\nArbol Transformado");
         imprimirArbol2(aaa, cola2);
         while (!cola2.isEmpty()) {
             System.out.print(cola2.dequeue() + " ");

@@ -1,36 +1,33 @@
 package tp2.ejercicio06;
 
+
 import tp2.ejercicio01y02.BinaryTree;
 
-public class Transformacion {
+public class Transformacion<T> {
     BinaryTree<Integer> binaryTree;
 
     public Transformacion(BinaryTree<Integer> ab) {
         this.binaryTree = ab;
     }
 
-    public BinaryTree<Integer> suma () {
-        BinaryTree<Integer> returnAB;
-        if (binaryTree == null) {
-            return returnAB = new BinaryTree<Integer>(0);
-        }
-        returnAB = sumarHijos(binaryTree);
-        return returnAB;
+    public BinaryTree<Integer> suma() {
+        return sumarHijosArbol(binaryTree);
     }
 
-    private BinaryTree<Integer> sumarHijos(BinaryTree<Integer> arbol) {
-        if (arbol.hasLeftChild()) {
-            arbol.setData(arbol.getLeftChild().getData() + sumarHijos(arbol.getLeftChild()).getData());
+    private BinaryTree<Integer> sumarHijosArbol(BinaryTree<Integer> arbol) {
+        BinaryTree<Integer> result = new BinaryTree<>(0);
+        if ((arbol != null) && (!arbol.isLeaf()) && (!arbol.isEmpty())) {
+            if (arbol.hasLeftChild()) {
+                result.addLeftChild(sumarHijosArbol(arbol.getLeftChild()));
+                result.setData(result.getLeftChild().getData() + arbol.getLeftChild().getData());
+            }
+            if (arbol.hasRightChild()) {
+                result.addRightChild(sumarHijosArbol(arbol.getRightChild()));
+                result.setData(result.getData() + result.getRightChild().getData() + arbol.getRightChild().getData());
+            }
         }
-        else {
-            arbol.setData(0);
-        }
-        if (arbol.hasRightChild()) {
-            arbol.setData(arbol.getData() + arbol.getRightChild().getData() + sumarHijos(arbol.getRightChild()).getData()) ;
-        }
-        else {
-            arbol.setData(0);
-        }
-        return arbol;
+        return result;
     }
 }
+
+
