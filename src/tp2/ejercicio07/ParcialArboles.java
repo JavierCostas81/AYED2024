@@ -49,8 +49,4 @@ public class ParcialArboles {
         }
         else return 0;
     }
-
-    private int contarHijosUnicosDerecha(BinaryTree<Integer> rightChild) {
-        return 0;
-    }
 }
