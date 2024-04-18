@@ -93,3 +93,11 @@ public class RecorridosAG {
         return resultado;
     }
 }
+/*
+b) Si ahora tuviera que implementar estos métodos en la clase GeneralTree<T>, ¿qué modificaciones
+        haría tanto en la firma como en la implementación de los mismos?
+    El llamado recursivo se haría sobre él mismo "this".
+    La firma cambiaría porque el objeto árbol no se pasaría por parámetro.
+
+
+*/
