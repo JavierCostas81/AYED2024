@@ -57,11 +57,17 @@ public class GeneralTree<T>{
 			children.remove(child);
 	}
 	
-	public int altura() {	 
-			
-		return 0;
+	public int altura() {
+		/*a) public int altura(): int devuelve la altura del árbol, es decir, la longitud del camino más largo
+		desde el nodo raíz hasta una hoja.*/
+
+		return calcularAltura(0);
 	}
-	
+
+	private int calcularAltura(int i) {
+
+	}
+
 	public int nivel(T dato){
 		return 0;
 	  }
