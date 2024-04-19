@@ -65,15 +65,49 @@ public class GeneralTree<T>{
 	}
 
 	private int calcularAltura(int i) {
+		int max = 0;
+		if ((this == null) || (this.isEmpty())) {
+			return -1;
+		}
 
+		else {
+			for (GeneralTree<T> ag : this.getChildren()
+			) {
+				max = Math.max(ag.calcularAltura(i + 1), max);
+			}
+		}
+		return Math.max(max,i);
 	}
 
 	public int nivel(T dato){
-		return 0;
+		/*public int nivel(T dato) devuelve la profundidad o nivel del dato en el árbol. El nivel de un nodo
+		es la longitud del único camino de la raíz al nodo.*/
+		return busquedaYNivel(dato, 0);
 	  }
 
+	private int busquedaYNivel(T dato, int nivel) {
+		int resultado = -1;
+		if ((this == null) || (this.isEmpty())) {
+			return resultado;
+		}
+		else {
+			if (this.getData().equals(dato)) {
+				resultado = nivel;
+				return resultado;
+			}
+			for (GeneralTree<T> ag : this.getChildren()
+			) {
+				resultado = Math.max(ag.busquedaYNivel( dato, nivel + 1),resultado);
+			}
+		}
+
+		return resultado;
+	}
+
 	public int ancho(){
-		
+		/*public int ancho(): int la amplitud (ancho) de un árbol se define como la cantidad de nodos que
+		se encuentran en el nivel que posee la mayor cantidad de nodos.*/
+
 		return 0;
 	}
 }

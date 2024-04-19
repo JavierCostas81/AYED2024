@@ -46,7 +46,13 @@ public class TestTP3 {
             System.out.println("Empty List");
         } else
             System.out.println("Por Niveles: " + listaResultadoEj2);
-
+        System.out.println("Ejercicio 3");
+        System.out.println("La altura del arbol es: " + a.altura());
+        int min = 0;
+        int max = 13;
+        int range = max - min + 1;
+        int dato = (int) (range * Math.random() + min);
+        System.out.println("El dato " + dato + " está en el nivel: " + a.nivel(dato));
 
     }
 }
