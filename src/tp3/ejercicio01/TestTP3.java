@@ -3,6 +3,7 @@ package tp3.ejercicio01;
 
 import tp3.ejercicio02.RecorridosAG;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class TestTP3 {
@@ -53,6 +54,6 @@ public class TestTP3 {
         int range = max - min + 1;
         int dato = (int) (range * Math.random() + min);
         System.out.println("El dato " + dato + " está en el nivel: " + a.nivel(dato));
-
+        System.out.println("El ancho del arbol es: " + a.ancho());
     }
 }

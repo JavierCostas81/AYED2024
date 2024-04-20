@@ -1,5 +1,7 @@
 package tp3.ejercicio01;
 
+import tp1.ejercicio08.Queue;
+
 import java.util.LinkedList;
 import java.util.List;
 
@@ -60,7 +62,6 @@ public class GeneralTree<T>{
 	public int altura() {
 		/*a) public int altura(): int devuelve la altura del árbol, es decir, la longitud del camino más largo
 		desde el nodo raíz hasta una hoja.*/
-
 		return calcularAltura(0);
 	}
 
@@ -104,10 +105,35 @@ public class GeneralTree<T>{
 		return resultado;
 	}
 
-	public int ancho(){
+	public int ancho() throws IllegalAccessException {
 		/*public int ancho(): int la amplitud (ancho) de un árbol se define como la cantidad de nodos que
 		se encuentran en el nivel que posee la mayor cantidad de nodos.*/
+		Queue<List<GeneralTree<T>>> cola = new Queue<>();
+		List<GeneralTree<T>> childs;
+		int resultado = -1;
+		if ((!this.isEmpty())) {
+			resultado = 1;
+		}
+		else {
+			return resultado;
+		}
+		cola.enqueue(this.getChildren());
+		cola.enqueue(null);
 
-		return 0;
+		while (!cola.isEmpty()) {
+			int tmp = 0;
+			while ((childs = cola.dequeue()) != null) {
+				tmp+= childs.size();
+				for (GeneralTree<T> aG: childs
+					 ) {
+					cola.enqueue(aG.getChildren());
+				}
+			}
+			resultado = Math.max(resultado,tmp);
+			if (!cola.isEmpty()) {
+				cola.enqueue(null);
+			}
+		}
+		return resultado;
 	}
 }
