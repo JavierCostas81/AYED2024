@@ -136,4 +136,14 @@ public class GeneralTree<T>{
 		}
 		return resultado;
 	}
+
+	@Override
+	public String toString() {
+		String tmp = "Dato: " + this.data.toString() + "\nHijos: ";
+		for (GeneralTree<T> hijos: this.children
+			 ) {
+			tmp+= "\n" + hijos.data.toString();
+		}
+		return tmp;
+	}
 }

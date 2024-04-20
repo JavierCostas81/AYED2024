@@ -2,8 +2,11 @@ package tp3.ejercicio01;
 
 
 import tp3.ejercicio02.RecorridosAG;
+import tp3.ejercicio04.AnalizadorArbol;
+import tp3.ejercicio04.AreaEmpresa;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class TestTP3 {
@@ -55,5 +58,38 @@ public class TestTP3 {
         int dato = (int) (range * Math.random() + min);
         System.out.println("El dato " + dato + " está en el nivel: " + a.nivel(dato));
         System.out.println("El ancho del arbol es: " + a.ancho());
+        ejercicio4();
+    }
+
+    private static void ejercicio4() throws IllegalAccessException {
+        AreaEmpresa m1 = new AreaEmpresa("M",14);
+        AreaEmpresa j1 = new AreaEmpresa("J",13);
+        AreaEmpresa k1 = new AreaEmpresa("K",25);
+        AreaEmpresa l1 = new AreaEmpresa("L",10);
+        AreaEmpresa a1 = new AreaEmpresa("A",4);
+        AreaEmpresa b1 = new AreaEmpresa("B",7);
+        AreaEmpresa c1 = new AreaEmpresa("C",5);
+        AreaEmpresa d1 = new AreaEmpresa("D",6);
+        AreaEmpresa e1 = new AreaEmpresa("E",10);
+        AreaEmpresa f1 = new AreaEmpresa("F",18);
+        AreaEmpresa g1 = new AreaEmpresa("G",9);
+        AreaEmpresa h1 = new AreaEmpresa("H",12);
+        AreaEmpresa i1 = new AreaEmpresa("I",19);
+        GeneralTree<AreaEmpresa> a = new GeneralTree<>(a1);
+        GeneralTree<AreaEmpresa> b = new GeneralTree<>(b1);
+        GeneralTree<AreaEmpresa> c = new GeneralTree<>(c1);
+        GeneralTree<AreaEmpresa> d = new GeneralTree<>(d1);
+        GeneralTree<AreaEmpresa> e = new GeneralTree<>(e1);
+        GeneralTree<AreaEmpresa> f = new GeneralTree<>(f1);
+        GeneralTree<AreaEmpresa> g = new GeneralTree<>(g1);
+        GeneralTree<AreaEmpresa> h = new GeneralTree<>(h1);
+        GeneralTree<AreaEmpresa> i = new GeneralTree<>(i1);
+        GeneralTree<AreaEmpresa> j = new GeneralTree<>(j1, Arrays.asList(a,b,c));
+        GeneralTree<AreaEmpresa> k = new GeneralTree<>(k1, Arrays.asList(d,e,f));
+        GeneralTree<AreaEmpresa> l = new GeneralTree<>(l1, Arrays.asList(g,h,i));
+        GeneralTree<AreaEmpresa> m = new GeneralTree<>(m1, Arrays.asList(j,k,l));
+        System.out.println("El máximo promedio de tardanza es: " + AnalizadorArbol.devolverMaximoPromedio(m));
+
+
     }
 }
