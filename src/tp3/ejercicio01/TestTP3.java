@@ -8,6 +8,7 @@ import tp3.ejercicio04.AreaEmpresa;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Locale;
 
 public class TestTP3 {
     public static void main (String[] args) throws IllegalAccessException {
@@ -59,6 +60,10 @@ public class TestTP3 {
         System.out.println("El dato " + dato + " está en el nivel: " + a.nivel(dato));
         System.out.println("El ancho del arbol es: " + a.ancho());
         ejercicio4();
+        int A = 4;
+        int B = 6;
+        System.out.println(String.format("Ejercicio 5\nEs " + A + " ancestro de " + B + "?" + "( %s )",a.esAncestro(A,B)));
+
     }
 
     private static void ejercicio4() throws IllegalAccessException {
@@ -88,7 +93,7 @@ public class TestTP3 {
         GeneralTree<AreaEmpresa> k = new GeneralTree<>(k1, Arrays.asList(d,e,f));
         GeneralTree<AreaEmpresa> l = new GeneralTree<>(l1, Arrays.asList(g,h,i));
         GeneralTree<AreaEmpresa> m = new GeneralTree<>(m1, Arrays.asList(j,k,l));
-        System.out.println("El máximo promedio de tardanza es: " + AnalizadorArbol.devolverMaximoPromedio(m));
+        System.out.println("Ejercicio 4\nEl máximo promedio de tardanza es: " + AnalizadorArbol.devolverMaximoPromedio(m));
 
 
     }
