@@ -4,6 +4,7 @@ package tp3.ejercicio01;
 import tp3.ejercicio02.RecorridosAG;
 import tp3.ejercicio04.AnalizadorArbol;
 import tp3.ejercicio04.AreaEmpresa;
+import tp3.ejercicio06.RedDeAguaPotable;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -63,7 +64,7 @@ public class TestTP3 {
         int A = 4;
         int B = 6;
         System.out.println(String.format("Ejercicio 5\nEs " + A + " ancestro de " + B + "?" + "( %s )",a.esAncestro(A,B)));
-
+        ejercicio6();
     }
 
     private static void ejercicio4() throws IllegalAccessException {
@@ -94,7 +95,32 @@ public class TestTP3 {
         GeneralTree<AreaEmpresa> l = new GeneralTree<>(l1, Arrays.asList(g,h,i));
         GeneralTree<AreaEmpresa> m = new GeneralTree<>(m1, Arrays.asList(j,k,l));
         System.out.println("Ejercicio 4\nEl máximo promedio de tardanza es: " + AnalizadorArbol.devolverMaximoPromedio(m));
-
-
+    }
+    private static void ejercicio6() {
+        RedDeAguaPotable redDeAguaPotable;
+        GeneralTree<Character> a = new GeneralTree<>('A');
+        GeneralTree<Character> b = new GeneralTree<>('B');
+        GeneralTree<Character> c = new GeneralTree<>('C');
+        GeneralTree<Character> d = new GeneralTree<>('D');
+        GeneralTree<Character> e = new GeneralTree<>('E');
+        GeneralTree<Character> f = new GeneralTree<>('F');
+        GeneralTree<Character> g = new GeneralTree<>('G');
+        GeneralTree<Character> h = new GeneralTree<>('H');
+        GeneralTree<Character> i = new GeneralTree<>('I');
+        GeneralTree<Character> j = new GeneralTree<>('J');
+        GeneralTree<Character> k = new GeneralTree<>('K');
+        GeneralTree<Character> l = new GeneralTree<>('L');
+        GeneralTree<Character> m = new GeneralTree<>('M');
+        GeneralTree<Character> n = new GeneralTree<>('N');
+        GeneralTree<Character> p = new GeneralTree<>('P');
+        g.addChild(l);
+        j.setChildren(Arrays.asList(m,n));
+        c.setChildren(Arrays.asList(f,g));
+        d.setChildren(Arrays.asList(h,i,j,k,p));
+        a.setChildren(Arrays.asList(b,c,d,e));
+        double caudal = 1000;
+        redDeAguaPotable = new RedDeAguaPotable(a);
+        System.out.println("Ejercicio 6\nEl caudal mínimo para " + caudal +
+                " litros de agua es: " + redDeAguaPotable.minimoCaudal(caudal) + " litros");
     }
 }
