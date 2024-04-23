@@ -180,10 +180,13 @@ public class GeneralTree<T>{
 
 	@Override
 	public String toString() {
-		String tmp = "Dato: " + this.data.toString() + "\nHijos: ";
+		String tmp = "\nDato: " + this.data.toString() + "\nHijos: ";
 		for (GeneralTree<T> hijos: this.children
 			 ) {
-			tmp+= "\n" + hijos.data.toString();
+			tmp+= hijos.data.toString() + " ";
+		}
+		if (this.children.isEmpty()) {
+			tmp+= "No tiene";
 		}
 		return tmp;
 	}

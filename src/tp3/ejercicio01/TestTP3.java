@@ -1,17 +1,14 @@
 package tp3.ejercicio01;
-
-
 import tp3.ejercicio02.RecorridosAG;
 import tp3.ejercicio04.AnalizadorArbol;
 import tp3.ejercicio04.AreaEmpresa;
 import tp3.ejercicio06.RedDeAguaPotable;
 import tp3.ejercicio07.Caminos;
+import tp3.ejercicio08.Navidad;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Locale;
-
 public class TestTP3 {
     public static void main (String[] args) throws IllegalAccessException {
        ejercicio2();
@@ -20,9 +17,8 @@ public class TestTP3 {
        ejercicio5();
        ejercicio6();
        ejercicio7();
+       ejercicio8();
     }
-
-
     private static void ejercicio2() throws IllegalAccessException {
         System.out.println("Ejercicio 2:");
         RecorridosAG recorridosAG = new RecorridosAG();
@@ -167,5 +163,21 @@ public class TestTP3 {
         a.setChildren(Arrays.asList(b,c,d));
         Caminos caminos = new Caminos(a);
         System.out.println(caminos.caminoAHojaMasLejana());
+    }
+    private static void ejercicio8() {
+        GeneralTree<Integer> a = new GeneralTree<>(1);        GeneralTree<Integer> b = new GeneralTree<>(2);
+        GeneralTree<Integer> c = new GeneralTree<>(3);        GeneralTree<Integer> d = new GeneralTree<>(4);
+        GeneralTree<Integer> e = new GeneralTree<>(5);        GeneralTree<Integer> f = new GeneralTree<>(6);
+        GeneralTree<Integer> g = new GeneralTree<>(7);        GeneralTree<Integer> h = new GeneralTree<>(8);
+        a.setChildren(Arrays.asList(b,c,d));
+        Navidad abeto = new Navidad(a);
+        System.out.println("Ejercicio 8\nEjemplo 1: ¿Es abeto?: " + abeto.esAbetoNavidenio());
+        b.setChildren(Arrays.asList(e,f,g));
+        System.out.println("Ejemplo 2: ¿Es abeto?: " + abeto.esAbetoNavidenio());
+        a.setChildren(Arrays.asList(b,c,d,e));
+        c.setChildren(Arrays.asList(f,g,h));
+        b.setChildren(new ArrayList<>());
+        System.out.println("Ejemplo 3: ¿Es abeto?: " + abeto.esAbetoNavidenio());
+        System.out.println(a.toString() + b + c + d + e + f + g + h);
     }
 }

@@ -20,26 +20,23 @@ public class Caminos {
    }
 
     public List<Integer> caminoAHojaMasLejana () {
-       List<Integer> lista = new ArrayList<>();
-        caminoAHojaMasLejana(0,lista);
-        return lista;
+
+        return caminoAHojaMasLejana(caminos);
     }
 
-    private int caminoAHojaMasLejana (int i, List<Integer> lista) {
-        int max = 0;
-        if ((caminos == null) || (caminos.isEmpty())) {
-            return -1;
-        }
-
-        else {
-            lista.add(caminos.getData());
-            for (GeneralTree<Integer> ag : caminos.getChildren()
-            ) {
-                Caminos caminos = new Caminos(ag);
-                max = Math.max(caminos.caminoAHojaMasLejana(i + 1,lista), max);
+    private List<Integer> caminoAHojaMasLejana (GeneralTree<Integer> arbol) {
+        List<Integer> max = new ArrayList<>();
+        if (arbol != null && !arbol.isEmpty()) {
+            List<Integer> tmp;
+            for (GeneralTree<Integer> ag : arbol.getChildren()) {
+                tmp = caminoAHojaMasLejana(ag);
+                if (tmp.size() > max.size()) {
+                    max = tmp;
+                }
             }
+            max.add(0, arbol.getData());
 
         }
-        return Math.max(max,i);
+        return max;
     }
 }
