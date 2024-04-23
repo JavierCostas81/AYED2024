@@ -72,7 +72,7 @@ public class TestTP3 {
         b.addChild(e);
         d.addChild(f);        d.addChild(g);
         e.addChild(h);        e.addChild(i);        e.addChild(j);
-        g.addChild(k);        g.addChild(l);
+        e.addChild(k);        g.addChild(l);
         System.out.println("Ejercicio 3");
         System.out.println("La altura del arbol es: " + a.altura());
         int min = 0;
@@ -178,6 +178,5 @@ public class TestTP3 {
         c.setChildren(Arrays.asList(f,g,h));
         b.setChildren(new ArrayList<>());
         System.out.println("Ejemplo 3: ¿Es abeto?: " + abeto.esAbetoNavidenio());
-        System.out.println(a.toString() + b + c + d + e + f + g + h);
     }
 }

@@ -137,7 +137,6 @@ public class GeneralTree<T>{
 		return resultado;
 	}
 
-
 //	Ejercicio 5
 //	Se dice que un nodo n es ancestro de un nodo m si existe un camino desde n a m. Implemente un
 //	método en la clase GeneralTree con la siguiente firma:
